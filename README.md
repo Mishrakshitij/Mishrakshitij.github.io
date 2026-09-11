@@ -8,9 +8,9 @@ The site presents my research on adaptive and trustworthy foundation-model agent
 
 GitHub Pages address after activation:
 
-**https://mishrakshitij.github.io/KshitijMishra.github.io/**
+**https://mishrakshitij.github.io/**
 
-This repository is a project site because its name differs from the account's `Mishrakshitij.github.io` user-site name. It can later move to a custom domain or the account's root site without changing its relative asset paths.
+The repository must be named **Mishrakshitij.github.io** to serve this root address. If it is still named `KshitijMishra.github.io`, rename it under Settings → General → Repository name. The GitHub username does not need to change. Relative asset paths also support a future custom domain.
 
 ## Publish on GitHub Pages
 
