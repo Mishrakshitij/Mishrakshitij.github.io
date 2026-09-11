@@ -1,0 +1,679 @@
+[
+  {
+    "id": "tracer",
+    "title": "TRACER: Trace-Regularized Training Against Indirect Prompt Injection",
+    "year": 2026,
+    "venue": "Findings of EMNLP 2026",
+    "venueGroup": "Findings of EMNLP",
+    "kind": "conference",
+    "status": "accepted",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Nils Lukas",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Salem Lahlou",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": null,
+    "code": null
+  },
+  {
+    "id": "core",
+    "title": "CORE: Collaborative Reasoning via Cross Teaching",
+    "year": 2026,
+    "venue": "ICML 2026",
+    "venueGroup": "ICML",
+    "kind": "conference",
+    "status": "accepted",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Mirat Aubakirov",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Martin Takac",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Nils Lukas",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Salem Lahlou",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://arxiv.org/abs/2601.21600",
+    "code": null
+  },
+  {
+    "id": "sd-e2",
+    "title": "SD-E²: Semantic Exploration for Reasoning Under Token Budgets",
+    "year": 2026,
+    "venue": "Findings of EACL 2026",
+    "venueGroup": "Findings of EACL",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Nils Lukas",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Salem Lahlou",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2026.findings-eacl.323/",
+    "code": null
+  },
+  {
+    "id": "breaking-barriers",
+    "title": "Breaking Barriers: A Paradigm Shift in Technology Accessibility for Individuals with Physical Disabilities",
+    "year": 2025,
+    "venue": "AAAI 2025",
+    "venueGroup": "AAAI",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Manisha Burja",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://ojs.aaai.org/index.php/AAAI/article/view/34670",
+    "code": "https://github.com/Mishrakshitij/EDiSS"
+  },
+  {
+    "id": "medex",
+    "title": "MedEx: Enhancing Medical Question-Answering with First-Order Logic based Reasoning and Knowledge Injection",
+    "year": 2025,
+    "venue": "COLING 2025",
+    "venueGroup": "COLING",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Aizan Zafar",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2025.coling-main.649/",
+    "code": "https://github.com/aizanzafar/MedEx"
+  },
+  {
+    "id": "able",
+    "title": "ABLE: Personalized Disability Support with Politeness and Empathy Integration",
+    "year": 2024,
+    "venue": "EMNLP 2024",
+    "venueGroup": "EMNLP",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Manisha Burja",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2024.emnlp-main.1252/",
+    "code": "https://github.com/Mishrakshitij/ABLE"
+  },
+  {
+    "id": "medlogic-aqa",
+    "title": "MedLogic-AQA: Enhancing Medical Question Answering with Abstractive Models Focusing on Logical Structures",
+    "year": 2024,
+    "venue": "Findings of EMNLP 2024",
+    "venueGroup": "Findings of EMNLP",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Aizan Zafar",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2024.findings-emnlp.981/",
+    "code": "https://github.com/aizanzafar/MedLogicAQA"
+  },
+  {
+    "id": "salem",
+    "title": "Correcting Language Model Outputs by Editing Salient Layers",
+    "year": 2024,
+    "venue": "Findings of EACL 2024",
+    "venueGroup": "Findings of EACL",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Tamer Soliman",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Anil Ramakrishna",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Aram Galstyan",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Anoop Kumar",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2024.findings-eacl.86/",
+    "code": null
+  },
+  {
+    "id": "please-donate",
+    "title": "Please Donate to Save a Life: Inducing Politeness to Handle Resistance in Persuasive Dialogue Agents",
+    "year": 2024,
+    "venue": "IEEE/ACM Transactions on Audio, Speech, and Language Processing",
+    "venueGroup": "IEEE/ACM TASLP",
+    "kind": "journal",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Mauajama Firdaus",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://ieeexplore.ieee.org/document/10439244",
+    "code": "https://github.com/Mishrakshitij/Re-Po-PDS",
+    "metadata": "32, 2202–2212"
+  },
+  {
+    "id": "e-therapist",
+    "title": "e-THERAPIST: I suggest you to cultivate a mindset of positivity and nurture uplifting thoughts",
+    "year": 2023,
+    "venue": "EMNLP 2023",
+    "venueGroup": "EMNLP",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Priyanshu Priya",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Manisha Burja",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2023.emnlp-main.861/",
+    "code": "https://github.com/Mishrakshitij/e-THERAPIST"
+  },
+  {
+    "id": "pal",
+    "title": "PAL to Lend a Helping Hand: Towards Building an Emotion Adaptive Polite and Empathetic Counseling Conversational Agent",
+    "year": 2023,
+    "venue": "ACL 2023",
+    "venueGroup": "ACL",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Priyanshu Priya",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2023.acl-long.685/",
+    "code": "https://github.com/Mishrakshitij/PAL"
+  },
+  {
+    "id": "partner",
+    "title": "PARTNER: A Persuasive Mental Health and Legal Counselling Dialogue System for Women and Children Crime Victims",
+    "year": 2023,
+    "venue": "IJCAI 2023",
+    "venueGroup": "IJCAI",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Priyanshu Priya",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Palak Totala",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://www.ijcai.org/proceedings/2023/686",
+    "code": "https://github.com/priyanshu-profile/PARTNER"
+  },
+  {
+    "id": "rptcs",
+    "title": "RPTCS: A Reinforced Persona-aware Topic-guiding Conversational System",
+    "year": 2023,
+    "venue": "EACL 2023",
+    "venueGroup": "EACL",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Zishan Ahmad",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Pushpak Bhattacharyya",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2023.eacl-main.253/",
+    "code": "https://github.com/zishan-ahmad-nlp/persona-topic-shift"
+  },
+  {
+    "id": "help-me-heal",
+    "title": "Help Me Heal: A Reinforced Polite and Empathetic Mental Health and Legal Counseling Dialogue System for Crime Victims",
+    "year": 2023,
+    "venue": "AAAI 2023",
+    "venueGroup": "AAAI",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Priyanshu Priya",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://ojs.aaai.org/index.php/AAAI/article/view/26685",
+    "code": "https://github.com/Mishrakshitij/Po-Em-MHLCDS"
+  },
+  {
+    "id": "genpads",
+    "title": "GenPADS: Reinforcing politeness in an end-to-end dialogue system",
+    "year": 2023,
+    "venue": "PLOS ONE",
+    "venueGroup": "PLOS ONE",
+    "kind": "journal",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Mauajama Firdaus",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0278323",
+    "code": "https://github.com/Mishrakshitij/GenPADS",
+    "metadata": "18(1), e0278323"
+  },
+  {
+    "id": "predicting-politeness",
+    "title": "Predicting Politeness Variations in Goal-Oriented Conversations",
+    "year": 2023,
+    "venue": "IEEE Transactions on Computational Social Systems",
+    "venueGroup": "IEEE TCSS",
+    "kind": "journal",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Mauajama Firdaus",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://ieeexplore.ieee.org/document/9737677",
+    "code": "https://github.com/Mishrakshitij/PACD",
+    "metadata": "10(3), 1095–1104"
+  },
+  {
+    "id": "pepds",
+    "title": "PEPDS: A Polite and Empathetic Persuasive Dialogue System for Charity Donation",
+    "year": 2022,
+    "venue": "COLING 2022",
+    "venueGroup": "COLING",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Azlaan Mustafa Samad",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Palak Totala",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2022.coling-1.34/",
+    "code": "https://github.com/Mishrakshitij/PEPDS"
+  },
+  {
+    "id": "empathetic-persuasion",
+    "title": "Empathetic Persuasion: Reinforcing Empathy and Persuasiveness in Dialogue Systems",
+    "year": 2022,
+    "venue": "Findings of NAACL 2022",
+    "venueGroup": "Findings of NAACL",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Azlaan Mustafa Samad",
+        "coFirst": true,
+        "first": true
+      },
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": true,
+        "first": false
+      },
+      {
+        "name": "Mauajama Firdaus",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://aclanthology.org/2022.findings-naacl.63/",
+    "code": null
+  },
+  {
+    "id": "please-be-polite",
+    "title": "Please be polite: Towards building a politeness adaptive dialogue system for goal-oriented conversations",
+    "year": 2022,
+    "venue": "Neurocomputing",
+    "venueGroup": "Neurocomputing",
+    "kind": "journal",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Mauajama Firdaus",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Asif Ekbal",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://www.sciencedirect.com/science/article/pii/S0925231222003952",
+    "code": "https://github.com/Mishrakshitij/PADS",
+    "metadata": "494, 242–254"
+  },
+  {
+    "id": "suspended-sediment",
+    "title": "Artificial intelligence for suspended sediment load prediction: a review",
+    "year": 2021,
+    "venue": "Environmental Earth Sciences",
+    "venueGroup": "Environmental Earth Sciences",
+    "kind": "journal",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Deepak Gupta",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Barenya Bikash Hazarika",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Mohanadhas Berlin",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Usha Mary Sharma",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://link.springer.com/article/10.1007/s12665-021-09625-3",
+    "code": null,
+    "metadata": "80, article 346"
+  },
+  {
+    "id": "universum-eeg",
+    "title": "Regularized Universum twin support vector machine for classification of EEG Signal",
+    "year": 2019,
+    "venue": "IEEE SMC 2019",
+    "venueGroup": "IEEE SMC",
+    "kind": "conference",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Deepak Gupta",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Hemanga Jyoti Sarma",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Mukesh Prasad",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://ieeexplore.ieee.org/document/8913897",
+    "code": null
+  },
+  {
+    "id": "neural-networks-hydrology",
+    "title": "Artificial Neural Networks in Hydrology",
+    "year": 2019,
+    "venue": "Research Cell: An International Journal of Engineering Science",
+    "venueGroup": "Research Cell",
+    "kind": "journal",
+    "status": "published",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Deepak Gupta",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": "https://ijoes.vidyapublications.com/paper/Vol31/9-Vol31.pdf",
+    "code": null,
+    "metadata": "31, 52–59 (Special Issue, January)"
+  }
+]

@@ -6,27 +6,21 @@ The site presents my research on adaptive and trustworthy foundation-model agent
 
 ## Website
 
-GitHub Pages address after activation:
+Live address: **https://mishrakshitij.github.io/**
 
-**https://mishrakshitij.github.io/**
-
-The repository must be named **Mishrakshitij.github.io** to serve this root address. If it is still named `KshitijMishra.github.io`, rename it under Settings → General → Repository name. The GitHub username does not need to change. Relative asset paths also support a future custom domain.
-
-## Publish on GitHub Pages
-
-1. Open **Settings → Pages** in this repository.
-2. Under **Build and deployment**, choose **Deploy from a branch**.
-3. Select **main** and **/(root)**, then **Save**.
-
-GitHub publishes the static files after the Pages deployment finishes. Subsequent changes to `main` redeploy automatically. No build service, API key, paid hosting plan, or package installation is needed.
+The repository is named `Mishrakshitij.github.io` to serve the account root. GitHub Pages publishes the static files from `main` at `/(root)`. Relative asset paths also support a future custom domain.
 
 ## Edit the site
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Biography, research, publications, experience, and contact links |
+| `index.html` | Compact biography, Latest, research interests, CAST, experience, and contact |
+| `publications.html` | Complete static publication archive, grouped by year |
+| `data/publications.json` | Public bibliography and author contribution metadata |
+| `scripts/build_publications.py` | Regenerates the publication archive |
+| `publications.js` | Year ordering, venue filters, and publication search |
 | `styles.css` | Layout, colors, typography, responsive behavior, and motion preferences |
-| `script.js` | Research-map interaction, publication filters, and mobile navigation |
+| `script.js` | CAST research map, curiosity cycle, and mobile navigation |
 | `assets/kshitij-mishra.png` | Profile portrait |
 | `assets/Kshitij_Mishra_CV.pdf` | Public CV |
 | `favicon.svg` | Browser icon |
@@ -34,7 +28,15 @@ GitHub publishes the static files after the Pages deployment finishes. Subsequen
 
 All essential information is available in HTML. JavaScript enhances the research map and navigation. The page respects reduced-motion preferences and includes keyboard-accessible controls.
 
-To add a publication, copy an existing publication entry in `index.html`, update its year/category and links, and keep its publication status accurate. Update the public CV separately when the record changes. Future affiliation, teaching, or group sections can be added without adopting a new site framework.
+To add or correct a publication, edit `data/publications.json`, then run:
+
+```sh
+python3 scripts/build_publications.py
+```
+
+The generator includes only published or accepted work and computes venue/year counts from the same records it renders. Keep main-conference and Findings venues separate. The `first` flag marks the first listed author; `coFirst` marks explicitly documented equal contributions. The website bolds Kshitij Mishra and adds dotted blue underlining to first and joint-first authors. Update the public CV separately when the record changes.
+
+Edit homepage items under **Latest** directly in `index.html`. The **CV** navigation link opens `assets/Kshitij_Mishra_CV.pdf` in a new tab. The Sanskrit quote and curiosity cycle appear in the research-philosophy section. Both animations have pause controls and respect reduced-motion preferences.
 
 ## Preview locally
 
