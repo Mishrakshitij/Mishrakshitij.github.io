@@ -14,12 +14,12 @@
         "first": true
       },
       {
-        "name": "Nils Lukas",
+        "name": "Salem Lahlou",
         "coFirst": false,
         "first": false
       },
       {
-        "name": "Salem Lahlou",
+        "name": "Nils Lukas",
         "coFirst": false,
         "first": false
       }
@@ -29,7 +29,7 @@
   },
   {
     "id": "core",
-    "title": "CORE: Collaborative Reasoning via Cross Teaching",
+    "title": "CoRe: Collaborative Reasoning via Cross Teaching",
     "year": 2026,
     "venue": "ICML 2026",
     "venueGroup": "ICML",
