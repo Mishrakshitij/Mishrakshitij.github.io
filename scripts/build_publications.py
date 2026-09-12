@@ -46,8 +46,7 @@ def author_html(author):
     lead = author.get('first') or author.get('coFirst')
     classes = ('self-author ' if author['name'] == 'Kshitij Mishra' else '') + ('first-author' if lead else '')
     tag = 'strong' if author['name'] == 'Kshitij Mishra' else 'span'
-    mark = '<sup>*</sup>' if author.get('coFirst') else ''
-    return f'<{tag} class="{classes.strip()}">{name}</{tag}>{mark}'
+    return f'<{tag} class="{classes.strip()}">{name}</{tag}>'
 
 def publication_html(pub):
     title = escape(pub['title'])
@@ -92,7 +91,7 @@ page = header + f'''  <main id="main" class="publications-page container">
     <div class="venue-summary" role="group" aria-label="Publication counts and venue filters">{''.join(chips)}</div>
     <p class="publication-note">Counts include accepted papers. Conference totals include Findings papers.</p>
     <div class="archive-controls"><label class="archive-search" for="publication-search">Search <input id="publication-search" type="search" placeholder="Title, author, or venue" autocomplete="off"></label><label class="archive-sort" for="publication-sort">Year order <select id="publication-sort"><option value="desc">Newest first</option><option value="asc">Oldest first</option></select></label></div>
-    <p class="archive-legend"><strong>Kshitij Mishra</strong> is shown in bold. <span class="first-author">Dotted blue underline</span> marks first and joint-first authors; <sup>*</sup> denotes equal contribution.</p>
+    <p class="archive-legend"><strong>Kshitij Mishra</strong> is shown in bold. <span class="first-author">Dotted blue underline</span> marks first and joint-first authors.</p>
     <p id="publication-status" class="sr-only" aria-live="polite">Showing {len(records)} publications.</p>
     <div class="archive-layout"><nav class="year-nav" aria-label="Publication years"><span class="eyebrow">By year</span>{year_links}</nav><div id="publication-years">{''.join(groups)}<p class="archive-empty" id="publication-empty" hidden>No publications match this search. Try another term or select All.</p></div></div>
   </main>
