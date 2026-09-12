@@ -14,7 +14,16 @@ records = json.loads((ROOT / 'data/publications.json').read_text())
 assert len({p['id'] for p in records}) == len(records), 'Duplicate publication ID'
 assert all(p['status'] in {'published', 'accepted'} for p in records)
 assert all(any(a['name'] == 'Kshitij Mishra' for a in p['authors']) for p in records)
-counts = Counter(p['venueGroup'] for p in records)
+def venue_family(pub):
+    """Compact filter labels; each citation keeps its exact publication venue."""
+    group = pub['venueGroup']
+    if group.startswith('Findings of '):
+        return group.removeprefix('Findings of ')
+    if pub['kind'] == 'journal' and group in {'IEEE/ACM TASLP', 'IEEE TCSS'}:
+        return 'IEEE Txns.'
+    return group
+
+counts = Counter(venue_family(p) for p in records)
 years = sorted({p['year'] for p in records}, reverse=True)
 conference_count = sum(p['kind'] == 'conference' for p in records)
 journal_count = sum(p['kind'] == 'journal' for p in records)
@@ -59,11 +68,12 @@ def publication_html(pub):
     if pub.get('code'):
         links.append(f'<a href="{escape(pub["code"], quote=True)}">Code ↗</a>')
     resources = '<div class="archive-links">' + ''.join(links) + '</div>' if links else ''
-    return f'''<article class="archive-publication" id="{escape(pub['id'])}" data-venue="{escape(pub['venueGroup'], quote=True)}" data-year="{pub['year']}">
+    return f'''<article class="archive-publication" id="{escape(pub['id'])}" data-venue="{escape(venue_family(pub), quote=True)}" data-year="{pub['year']}">
       <h3>{title}</h3><p class="archive-authors">{authors}</p><p class="archive-venue">{venue}</p>{resources}
     </article>'''
 
-venue_order = ['ICML', 'ACL', 'EMNLP', 'Findings of EMNLP', 'EACL', 'Findings of EACL', 'Findings of NAACL', 'COLING', 'AAAI', 'IJCAI', 'IEEE SMC']
+venue_order = ['ICML', 'ACL', 'EMNLP', 'EACL', 'NAACL', 'COLING', 'AAAI', 'IJCAI', 'IEEE Txns.', 'IEEE SMC']
+venue_order = [v for v in venue_order if v in counts]
 venue_order += sorted(v for v in counts if v not in venue_order)
 chips = [f'<button class="venue-count" type="button" data-venue-filter="all" aria-pressed="true">All <strong>×{len(records)}</strong></button>']
 for venue in venue_order:
@@ -80,7 +90,7 @@ page = header + f'''  <main id="main" class="publications-page container">
     <p class="archive-intro">Published and accepted work, organized by year. <a class="text-link" href="https://scholar.google.com/citations?user=jfTVBUQAAAAJ">Google Scholar ↗</a></p>
     <p class="archive-totals"><strong>{len(records)} publications</strong> · {conference_count} conference papers · {journal_count} journal articles</p>
     <div class="venue-summary" role="group" aria-label="Publication counts and venue filters">{''.join(chips)}</div>
-    <p class="publication-note">Counts include accepted papers. Main-conference and Findings publications are counted separately.</p>
+    <p class="publication-note">Counts include accepted papers. Conference totals include Findings papers.</p>
     <div class="archive-controls"><label class="archive-search" for="publication-search">Search <input id="publication-search" type="search" placeholder="Title, author, or venue" autocomplete="off"></label><label class="archive-sort" for="publication-sort">Year order <select id="publication-sort"><option value="desc">Newest first</option><option value="asc">Oldest first</option></select></label></div>
     <p class="archive-legend"><strong>Kshitij Mishra</strong> is shown in bold. <span class="first-author">Dotted blue underline</span> marks first and joint-first authors; <sup>*</sup> denotes equal contribution.</p>
     <p id="publication-status" class="sr-only" aria-live="polite">Showing {len(records)} publications.</p>
