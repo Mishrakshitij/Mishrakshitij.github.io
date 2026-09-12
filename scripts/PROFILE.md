@@ -1,7 +1,7 @@
 # Editing the academic profile
 
 - Edit the biography in the `profile-content` block of `index.html`.
-- Edit roles, institutions, and dates in its `profile-experience` list, beneath
+- Edit the Postdoc, Ph.D., and M.Tech. timeline in its `profile-bio` section, beneath
   the curiosity–learning–experience–innovation loop.
 - Edit the CAST summary, Current questions, and Looking ahead in the
   `cast-overview` block of `index.html`, below Latest in the main column.
@@ -14,4 +14,4 @@
 - Edit the patent citation in `scripts/build_patents.py` and regenerate its page.
 
 The full career history remains in the CV; the homepage shows a compact
-experience list. CAST is the homepage's Research Interests section.
+Bio timeline, with Honors and Fellowships below it. CAST is the homepage's Research Interests section.

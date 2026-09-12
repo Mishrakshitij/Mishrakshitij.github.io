@@ -105,13 +105,11 @@
 .theme-detail .eyebrow{margin-bottom:12px}
 .theme-detail ul{margin:18px 0 0}
 
-/* Experience and honors share a compact two-column sidebar block. */
-.sidebar-records{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:20px;padding-top:17px;border-top:1px solid var(--line);align-items:start}
-.sidebar-records>.profile-experience{min-width:0;margin:0;padding:0;border:0}
-.sidebar-records h2{font-size:12px;line-height:1.5;min-height:3em;margin-bottom:12px}
-.sidebar-records h3{font-size:11.5px;line-height:1.5}
-.sidebar-records p{overflow-wrap:break-word}
-@media(max-width:480px){.sidebar-records{grid-template-columns:minmax(0,1fr);gap:22px}.sidebar-records h2{min-height:0}}
+/* Short academic biography, followed by honors in the same sidebar column. */
+.profile-bio .bio-timeline li{display:grid;grid-template-columns:72px minmax(0,1fr);column-gap:12px;align-items:start}
+.profile-bio .bio-timeline li>div{position:relative;min-width:0;padding-left:12px;border-left:1px solid var(--line)}
+.profile-bio .bio-timeline li>div::before{content:'';position:absolute;left:-3px;top:7px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+.profile-bio .experience-date{white-space:nowrap;padding-top:2px}
 
 /* CAST follows Latest in the main column, alongside the full profile sidebar. */
 .academic-profile{grid-template-rows:min-content min-content 1fr}
