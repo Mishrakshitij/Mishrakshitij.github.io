@@ -29,6 +29,8 @@
 .academic-profile .profile-content{display:block;grid-column:1;grid-row:1;min-width:0}
 .academic-profile h1{margin-bottom:20px}
 .academic-profile .profile-content>p{margin-bottom:14px}
+.profile-content .bio-link{color:var(--teal);text-decoration:underline;text-decoration-color:#b7cbbd;text-underline-offset:3px}
+.profile-content .bio-link:hover{text-decoration-color:var(--teal)}
 .academic-profile .profile-links{margin-top:18px}
 .academic-profile .profile-interests{display:block;margin-top:24px;padding-top:17px}
 .academic-profile .profile-interests h2{margin:0 0 8px;font-size:13px;line-height:1.5}
