@@ -26,7 +26,7 @@ header = re.sub(r'<meta name="description"[^>]+>', '<meta name="description" con
 header = header.replace('rel="canonical" href="https://mishrakshitij.github.io/"', 'rel="canonical" href="https://mishrakshitij.github.io/publications.html"')
 header = header.replace('property="og:url" content="https://mishrakshitij.github.io/"', 'property="og:url" content="https://mishrakshitij.github.io/publications.html"')
 header = re.sub(r'<meta property="og:title"[^>]+>', '<meta property="og:title" content="Publications · Kshitij Mishra">', header)
-for anchor in ('about', 'research', 'experience', 'contact'):
+for anchor in ('about', 'research', 'patents', 'experience', 'contact'):
     header = header.replace(f'href="#{anchor}"', f'href="index.html#{anchor}"')
 header = header.replace('href="publications.html">Publications', 'href="publications.html" aria-current="page">Publications')
 header = header.replace('</head>', '  <script src="publications.js" defer></script>\n</head>')

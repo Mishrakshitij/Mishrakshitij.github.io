@@ -63,7 +63,7 @@
       }
     ],
     "url": "https://arxiv.org/abs/2601.21600",
-    "code": null
+    "code": "https://github.com/Mishrakshitij/CoRe"
   },
   {
     "id": "sd-e2",
@@ -91,7 +91,7 @@
       }
     ],
     "url": "https://aclanthology.org/2026.findings-eacl.323/",
-    "code": null
+    "code": "https://github.com/Mishrakshitij/SD-E2"
   },
   {
     "id": "breaking-barriers",

@@ -2,7 +2,7 @@
 
 Personal academic website for Kshitij Mishra, Postdoctoral Associate at MBZUAI.
 
-The site presents my research on adaptive and trustworthy foundation-model agents, selected publications, public research software, experience, and contact information. CAST—Consistent, Adaptive, Strategic, and Trustworthy—is the organizing research agenda.
+The site presents my research on adaptive and trustworthy foundation-model agents, publications, patents, public research software, experience, and contact information. CAST—Consistent, Adaptive, Strategic, and Trustworthy—is the organizing research agenda.
 
 ## Website
 
@@ -14,7 +14,7 @@ The repository is named `Mishrakshitij.github.io` to serve the account root. Git
 
 | File | Purpose |
 | --- | --- |
-| `index.html` | Compact biography, Latest, research interests, CAST, experience, and contact |
+| `index.html` | Compact biography, Latest, research interests, CAST, patents, experience, and contact |
 | `publications.html` | Complete static publication archive, grouped by year |
 | `data/publications.json` | Public bibliography and author contribution metadata |
 | `scripts/build_publications.py` | Regenerates the publication archive |
@@ -36,7 +36,7 @@ python3 scripts/build_publications.py
 
 The generator includes only published or accepted work and computes venue/year counts from the same records it renders. Keep main-conference and Findings venues separate. The `first` flag marks the first listed author; `coFirst` marks explicitly documented equal contributions. The website bolds Kshitij Mishra and adds dotted blue underlining to first and joint-first authors. Update the public CV separately when the record changes.
 
-Edit homepage items under **Latest** directly in `index.html`. The **CV** navigation link opens `assets/Kshitij_Mishra_CV.pdf` in a new tab. The Sanskrit quote and its translation sit directly below Research interests. The portrait sidebar contains affiliation, both email addresses, LinkedIn, and the interactive curiosity cycle. After changing the shared header in `index.html`, rerun the publication generator to keep both pages consistent. Both animations have pause controls and respect reduced-motion preferences.
+Edit the bullet updates under **Latest**, the **Patents** entry, and **Open research** links directly in `index.html`. Patent metadata links to its public record; publication code links are maintained in `data/publications.json`. The CAST introduction states the focus on building trustworthy AI systems, with further safety and security details in the interactive T node. The **CV** navigation link opens `assets/Kshitij_Mishra_CV.pdf` in a new tab. The Sanskrit quote and its translation sit directly below Research interests. The portrait sidebar contains affiliation, both email addresses, LinkedIn, and the interactive curiosity cycle. After changing the shared header in `index.html`, rerun the publication generator to keep both pages consistent. Both animations have pause controls and respect reduced-motion preferences.
 
 ## Preview locally
 
