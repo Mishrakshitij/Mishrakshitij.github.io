@@ -13,10 +13,7 @@
     const theme = themes[button.dataset.theme];
     if (!theme) return;
     nodes.forEach(n => { const active=n===button; n.classList.toggle('is-active',active); n.setAttribute('aria-pressed',String(active)); });
-    document.getElementById('theme-number').textContent=theme.number;
-    document.getElementById('theme-title').textContent=theme.title;
-    document.getElementById('theme-description').textContent=theme.description;
-    document.getElementById('theme-topics').replaceChildren(...theme.topics.map(t=>{const li=document.createElement('li');li.textContent=t;return li;}));
+    document.getElementById('cast-focus').textContent=theme.focus;
   }
   nodes.forEach((node,index) => {
     node.addEventListener('click',()=>selectTheme(node));
