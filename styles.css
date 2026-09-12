@@ -25,7 +25,7 @@
 .header-inner{gap:24px}
 .wordmark{display:flex;align-items:baseline;flex-wrap:wrap;gap:3px 7px;font-size:21px;letter-spacing:-.025em;line-height:1.45;flex-shrink:0}
 .wordmark-devanagari{font-family:'Noto Serif Devanagari','Nirmala UI',Mangal,serif;font-size:16px;letter-spacing:0;color:var(--teal);white-space:nowrap}
-.academic-profile{grid-template-columns:minmax(0,1fr) 280px;column-gap:48px;row-gap:28px;padding-bottom:43px}
+.academic-profile{grid-template-columns:minmax(0,1fr) 280px;grid-template-rows:min-content 1fr;column-gap:48px;row-gap:28px;padding-bottom:43px}
 .academic-profile .profile-content{display:block;grid-column:1;grid-row:1;min-width:0}
 .academic-profile h1{margin-bottom:20px}
 .academic-profile .profile-content>p{margin-bottom:14px}
@@ -54,7 +54,7 @@
 .profile-sidebar .journey-description{align-items:flex-start;min-height:48px}
 .profile-sidebar .journey-description p{max-width:190px}
 .profile-sidebar .journey-description button{padding-top:2px}
-.academic-profile .latest-section{grid-column:1;grid-row:2;padding-bottom:0;min-width:0}
+.academic-profile .latest-section{grid-column:1;grid-row:2;align-self:start;padding-bottom:0;min-width:0}
 /* Latest uses simple bullets; venue years remain part of each update. */
 .academic-profile .latest-list{list-style:disc;padding-left:18px;border-top:0}
 .academic-profile .latest-list li{display:list-item;padding:7px 0;border:0}
@@ -75,7 +75,7 @@
   .academic-profile{grid-template-columns:minmax(0,1fr) 260px;column-gap:32px}
 }
 @media(max-width:800px){
-  .academic-profile{grid-template-columns:minmax(0,1fr);row-gap:30px}
+  .academic-profile{grid-template-columns:minmax(0,1fr);grid-template-rows:none;row-gap:30px}
   .academic-profile .profile-content,.profile-sidebar,.academic-profile .latest-section{grid-column:1;grid-row:auto}
   .profile-sidebar{width:280px;max-width:100%;justify-self:center}
   .academic-profile .profile-photo{width:160px}
@@ -92,5 +92,17 @@
   .profile-quote blockquote{font-size:20px}
   .profile-quote p{font-size:11px}
 }
+
+/* Compact experience list beneath the learning loop. */
+.profile-experience{margin-top:20px;padding-top:17px;border-top:1px solid var(--line);scroll-margin-top:100px}
+.profile-experience h2{font-family:var(--sans);font-size:13px;font-weight:600;line-height:1.5;letter-spacing:0;margin:0 0 13px}
+.profile-experience ul{list-style:none;margin:0;padding:0}
+.profile-experience li+li{margin-top:13px}
+.profile-experience h3{font-family:var(--sans);font-size:12px;font-weight:600;line-height:1.5;letter-spacing:0;margin:0 0 2px}
+.profile-experience p{font-size:11px;line-height:1.6;color:var(--text);margin:0}
+.profile-experience .experience-date{font-size:10px;color:var(--muted);margin-top:1px}
+.theme-detail h3{font-size:26px;margin-bottom:13px}
+.theme-detail .eyebrow{margin-bottom:12px}
+.theme-detail ul{margin:18px 0 0}
 
 @media print{body{background:white;color:black}.site-header,.profile-photo,.cast-visual,.journey-widget,.venue-summary,.archive-controls,.year-nav,.contact-section,.site-footer{display:none!important}.container{padding:0;max-width:none}.academic-profile{display:block;padding:0}.academic-profile h1{font-size:30px}.profile-content{display:block}.section,.research-section,.code-section{padding:20px 0;background:white}.cast-panel,.experience-grid,.philosophy-section,.archive-layout{display:block}.cast-panel{padding:15px;border:1px solid #aaa}.academic-details{padding-left:0;border:0}.archive-publication{break-inside:avoid}.archive-publication[hidden],.year-group[hidden]{display:block}.year-group+.year-group{margin-top:20px}.section-heading{display:block}.profile-interests{margin:15px 0;padding-top:10px}.first-author{text-decoration-color:#3475b0}}
