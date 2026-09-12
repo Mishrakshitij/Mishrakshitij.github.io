@@ -36,7 +36,7 @@ python3 scripts/build_publications.py
 
 The generator includes only published or accepted work and computes venue/year counts from the same records it renders. Keep main-conference and Findings venues separate. The `first` flag marks the first listed author; `coFirst` marks explicitly documented equal contributions. The website bolds Kshitij Mishra and adds dotted blue underlining to first and joint-first authors. Update the public CV separately when the record changes.
 
-Edit homepage items under **Latest** directly in `index.html`. The **CV** navigation link opens `assets/Kshitij_Mishra_CV.pdf` in a new tab. The Sanskrit quote and curiosity cycle appear in the research-philosophy section. Both animations have pause controls and respect reduced-motion preferences.
+Edit homepage items under **Latest** directly in `index.html`. The **CV** navigation link opens `assets/Kshitij_Mishra_CV.pdf` in a new tab. The Sanskrit quote and its translation sit directly below Research interests. The portrait sidebar contains affiliation, both email addresses, LinkedIn, and the interactive curiosity cycle. After changing the shared header in `index.html`, rerun the publication generator to keep both pages consistent. Both animations have pause controls and respect reduced-motion preferences.
 
 ## Preview locally
 
