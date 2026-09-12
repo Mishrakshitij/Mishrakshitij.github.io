@@ -37,7 +37,7 @@ header = header.replace('property="og:url" content="https://mishrakshitij.github
 header = re.sub(r'<meta property="og:title"[^>]+>', '<meta property="og:title" content="Publications · Kshitij Mishra">', header)
 for anchor in ('about', 'research', 'patents', 'experience', 'contact'):
     header = header.replace(f'href="#{anchor}"', f'href="index.html#{anchor}"')
-header = header.replace('href="publications.html">Publications', 'href="publications.html" aria-current="page">Publications')
+header = re.sub(r'(href="publications\.html(?:\?[^" ]*)?")>Publications', r'\1 aria-current="page">Publications', header)
 header = header.replace('</head>', '  <script src="publications.js" defer></script>\n</head>')
 footer = home[home.index('  <footer '):].replace('href="#about"', 'href="#main"')
 
