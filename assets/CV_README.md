@@ -14,4 +14,8 @@ To update the website:
 The full project and full CV are maintained separately. Only the public PDF
 belongs in this repository.
 
-Current PDF revision: September 12, 2026 — LaTeX source edit; no photograph.
+Current PDF revision: September 24, 2026 — the September 12 LaTeX build with
+the PROBE (NeurIPS 2026) entry added at the top of Conference Publications and
+the count raised to 17. That entry was inserted into the PDF directly, because
+the LaTeX source was not available. Add it to `cv-public.tex` before the next
+rebuild, or the next compiled CV will drop it.
