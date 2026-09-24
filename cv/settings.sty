@@ -1,0 +1,38 @@
+% Adapted from the uploaded settings.sty by LianTze Lim.
+% Original green gradient and burgundy bookmark accents retained.
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{settings}[2026/09/12 Revised original CurVe CV theme]
+\RequirePackage[a4paper,top=17mm,bottom=18mm,left=18mm,right=18mm]{geometry}
+\RequirePackage{fontspec}
+\setmainfont{CrimsonText}[Path=fonts/,Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold,ItalicFont=*-Italic,BoldItalicFont=*-BoldItalic]
+\setsansfont{Cabin}[Path=fonts/,Extension=.ttf,UprightFont=*-Regular,BoldFont=*-Bold]
+\newenvironment{description}{}{} % CurVe does not define the standard description list.
+\RequirePackage{xcolor,tikz,tabularx,array,enumitem,needspace,lastpage,ragged2e}
+\RequirePackage[unicode,colorlinks=true,urlcolor=black,linkcolor=black,pdfauthor={Kshitij Mishra},pdftitle={Kshitij Mishra - Curriculum Vitae},pdfsubject={Research on adaptive and trustworthy AI agents}]{hyperref}
+\definecolor{SwishLineColour}{HTML}{88AC0B}
+\definecolor{MarkerColour}{HTML}{B6073F}
+\definecolor{Subtle}{HTML}{505050}
+\definecolor{AuthorBlue}{HTML}{3475B0}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{3pt}
+\setlength{\tabcolsep}{0pt}
+\setlist[itemize]{leftmargin=12pt,itemsep=2pt,topsep=3pt,parsep=0pt,label=\textbullet}
+% Footer through the LaTeX kernel, so it sits exactly \footskip below the text in
+% every TeX distribution (fancyhdr 4.0, bundled with Tectonic, places it a line lower).
+\def\ps@cvfooter{\let\@oddhead\@empty\let\@evenhead\@empty
+  \def\@oddfoot{\sffamily\fontsize{8}{10}\selectfont\color{Subtle}Kshitij Mishra\enspace |\enspace Curriculum Vitae\hfil\thepage\,/\,\pageref*{LastPage}}%
+  \let\@evenfoot\@oddfoot}
+\pagestyle{cvfooter}
+\setlength{\footskip}{24pt}
+\newcommand{\greenrule}{\par\noindent\begin{tikzpicture}\shade[left color=SwishLineColour!75,right color=white] (0,0) rectangle (\linewidth,2.2pt);\end{tikzpicture}\par}
+\newcommand{\makerubrichead}[1]{\par\addvspace{8pt}\Needspace{50pt}{\sffamily\fontsize{14}{17}\selectfont\bfseries #1\par}\vspace{-4pt}\greenrule\nobreak\vspace{0pt}}
+\newcommand{\bookmark}{\tikz[baseline=0pt]{\fill[MarkerColour] (0,0)--(0,7pt)--(5pt,7pt)--(5pt,0)--(2.5pt,1.8pt)--cycle;}}
+\newcommand{\cventry}[3]{\par\noindent\begin{minipage}[t]{82pt}\vspace{0pt}\small\color{Subtle}#1\end{minipage}\hspace{8pt}\begin{minipage}[t]{5pt}\vspace{0pt}\bookmark\end{minipage}\hspace{10pt}\begin{minipage}[t]{\dimexpr\linewidth-105pt}\vspace{0pt}\RaggedRight\textbf{#2}\par #3\end{minipage}\par\vspace{5pt}}
+\newcommand{\firstauthor}[1]{\tikz[baseline=(author.base)]{\node[inner sep=0pt,outer sep=0pt] (author) {#1};\draw[AuthorBlue,densely dotted,line width=.55pt] ([yshift=-1.8pt]author.south west)--([yshift=-1.8pt]author.south east);}}
+\newcommand{\publication}[5]{\par\noindent\begin{minipage}{\linewidth}\fontsize{10}{12.2}\selectfont\begin{minipage}[t]{62pt}\vspace{0pt}\raggedright\sffamily\fontsize{8.8}{11}\selectfont\color{MarkerColour}#1\end{minipage}\hspace{10pt}\begin{minipage}[t]{\dimexpr\linewidth-72pt}\vspace{0pt}\RaggedRight\textbf{#2}\par\vspace{1pt}#3\par\vspace{1pt}{\color{Subtle}#4}\enspace #5\end{minipage}\end{minipage}\par\vspace{7pt}}
+\newcommand{\resource}[2]{\href{#1}{\textcolor{MarkerColour}{\sffamily\fontsize{8.5}{10}\selectfont #2}}}
+\newcommand{\serviceentry}[2]{\par\noindent\begin{minipage}[t]{48pt}\vspace{0pt}\small\color{Subtle}#1\end{minipage}\hspace{12pt}\begin{minipage}[t]{\dimexpr\linewidth-60pt}\vspace{0pt}\RaggedRight #2\end{minipage}\par\vspace{4pt}}
+\newcommand{\compactitem}[2]{\textbf{#1}\enspace #2\par\vspace{5pt}}
+\AtBeginDocument{\RaggedRight\fontsize{10.5}{13}\selectfont}
+\emergencystretch=2em
+\clubpenalty=10000\widowpenalty=10000

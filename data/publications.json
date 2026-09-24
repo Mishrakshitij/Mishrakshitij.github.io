@@ -590,6 +590,7 @@
     "year": 2022,
     "venue": "Neurocomputing",
     "venueGroup": "Neurocomputing",
+    "cvLabel": "Neurocomp.",
     "kind": "journal",
     "status": "published",
     "authors": [
@@ -619,6 +620,7 @@
     "year": 2021,
     "venue": "Environmental Earth Sciences",
     "venueGroup": "Environmental Earth Sciences",
+    "cvLabel": "Environ. Earth Sci.",
     "kind": "journal",
     "status": "published",
     "authors": [

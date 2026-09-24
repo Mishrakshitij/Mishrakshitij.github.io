@@ -18,12 +18,14 @@ The repository is named `Mishrakshitij.github.io` to serve the account root. Git
 | `publications.html` | Complete static publication archive, grouped by year (generated; do not edit by hand) |
 | `data/publications.json` | Public bibliography and author contribution metadata |
 | `scripts/build_publications.py` | Regenerates the publication archive, totals, and venue tags |
-| `.github/workflows/rebuild-pages.yml` | Reruns both page generators on GitHub after the data or shared header changes |
+| `.github/workflows/rebuild-pages.yml` | Rebuilds the archive pages and the CV on GitHub after the data, CV source, or shared header changes |
+| `cv/` | LaTeX source of the public CV; see `cv/README.md` |
+| `scripts/build_cv.py` | Regenerates the CV's publication lists from `data/publications.json` and compiles the CV |
 | `publications.js` | Year ordering, venue filters, and publication search |
 | `styles.css` | Layout, colors, typography, responsive behavior, and motion preferences |
 | `script.js` | CAST research map, curiosity cycle, and mobile navigation |
 | `assets/kshitij-mishra.png` | Profile portrait |
-| `assets/Kshitij_Mishra_CV.pdf` | Public CV |
+| `assets/Kshitij_Mishra_CV.pdf` | Public CV, compiled from `cv/` |
 | `favicon.svg` | Browser icon |
 | `sitemap.xml` | Canonical page URL for search engines |
 
@@ -47,7 +49,7 @@ Add one record at the top of `data/publications.json` (newest first) and push to
 }
 ```
 
-The **Rebuild publication pages** GitHub Action then runs the generator and commits the new `publications.html`; GitHub Pages publishes it about a minute later. Pull before your next local edit, since the Action adds that commit. To preview first, run `python3 scripts/build_publications.py` locally; the Action then finds nothing to change.
+The **Rebuild publication pages** GitHub Action then regenerates `publications.html` and the CV from that record and commits them; GitHub Pages publishes the result about a minute later. Pull before your next local edit, since the Action adds that commit. To preview first, run `python3 scripts/build_publications.py` and `python3 scripts/build_cv.py` locally; the Action then finds nothing to change.
 
 Everything on the publications page is computed from the records: the total, the conference/journal/workshop split, per-year counts, and one venue tag per venue with its paper count. A venue that appears for the first time gets its own tag automatically. The Action log and the local run print the resulting tags. A malformed record stops the build with a list of problems instead of publishing a broken page.
 
@@ -55,9 +57,9 @@ Everything on the publications page is computed from the records: the total, the
 - `venue`: the exact venue as cited, e.g. `NeurIPS 2026`, `Findings of EMNLP 2026`, or a journal name. The tag is the venue without its year (`NeurIPS`); set `venueGroup` to choose a different tag, e.g. a journal abbreviation such as `IEEE TCSS`.
 - `kind`: `conference`, `journal`, or `workshop`. `status`: `published` or `accepted`; accepted papers carry an Accepted label, and work under review stays off the site.
 - `first` marks the first listed author; `coFirst` marks explicitly documented equal contributions. Both default to false.
-- Optional: `metadata` (journal volume and pages), `url` (paper link), `code` (repository link).
+- Optional: `metadata` (journal volume and pages), `url` (paper link), `code` (repository link), `cvLabel` (the CV's left-column label when it differs from the tag, e.g. `Neurocomp.`).
 
-Tags combine main-conference and Findings papers under the conference name and group IEEE Transactions journals under IEEE Txns.; IEEE SMC remains a separate conference. `VENUE_ORDER` at the top of `scripts/build_publications.py` sets the tag order; unlisted venues follow automatically. The website bolds Kshitij Mishra and adds dotted blue underlining to first and joint-first authors. The **Latest** bullets and the public CV are updated separately.
+Tags combine main-conference and Findings papers under the conference name and group IEEE Transactions journals under IEEE Txns.; IEEE SMC remains a separate conference. `VENUE_ORDER` at the top of `scripts/build_publications.py` sets the tag order; unlisted venues follow automatically. The website bolds Kshitij Mishra and adds dotted blue underlining to first and joint-first authors. The CV uses the same records for its publication lists and counts. The **Latest** bullets are updated separately.
 
 ## Other edits
 

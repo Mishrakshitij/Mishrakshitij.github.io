@@ -1,6 +1,7 @@
 # Adding a record to data/publications.json is the only edit a new paper needs:
 # this workflow regenerates the static archive pages (list, totals, per-year
-# counts, and venue tags) and commits them, and GitHub Pages publishes the result.
+# counts, and venue tags) and the public CV, commits them, and GitHub Pages
+# publishes the result.
 name: Rebuild publication pages
 
 on:
@@ -10,6 +11,8 @@ on:
       - data/publications.json
       - scripts/build_publications.py
       - scripts/build_patents.py
+      - scripts/build_cv.py
+      - cv/**
       - index.html
       - .github/workflows/rebuild-pages.yml
   workflow_dispatch:
@@ -34,15 +37,26 @@ jobs:
           python3 scripts/build_publications.py
           python3 scripts/build_patents.py
 
-      - name: Commit regenerated pages
+      - name: Install Tectonic
         run: |
-          if git diff --quiet -- publications.html patents.html; then
-            echo "Pages already match their sources; nothing to commit."
+          mkdir -p ~/.local/bin
+          curl -fsSL https://github.com/tectonic-typesetting/tectonic/releases/download/tectonic%400.15.0/tectonic-0.15.0-x86_64-unknown-linux-musl.tar.gz | tar -xz -C ~/.local/bin
+
+      - name: Rebuild the CV
+        # A TeX download problem must not block the website update.
+        continue-on-error: true
+        run: python3 scripts/build_cv.py
+
+      - name: Commit regenerated files
+        run: |
+          files="publications.html patents.html assets/Kshitij_Mishra_CV.pdf cv/publications-*.tex"
+          if git diff --quiet -- $files; then
+            echo "Generated files already match their sources; nothing to commit."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add publications.html patents.html
-          git commit -m "Rebuild publication pages from data/publications.json"
+          git add $files
+          git commit -m "Rebuild publication pages and CV from their sources"
           git pull --rebase origin main
           git push origin HEAD:main

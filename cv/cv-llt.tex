@@ -1,0 +1,28 @@
+% Kshitij Mishra's academic CV, edited from the supplied CurVe project.
+% Original theme/template: LianTze Lim, 23 October 2022.
+% Compiler: XeLaTeX. Main document: cv-llt.tex.
+% No photograph is loaded. The full CV includes a clearly separate pending-work page.
+\documentclass[a4paper,skipsamekey,11pt,english]{curve}
+\usepackage{settings}
+\newif\ifpubliccv
+\ifdefined\PUBLICCV\publiccvtrue\else\publiccvfalse\fi
+\begin{document}
+\input{header}
+\input{profile}
+\input{employment}
+\input{education}
+\input{publications}
+\newpage
+\input{patent}
+\input{systems}
+\input{teaching}
+\input{service}
+\input{misc}
+\input{skills}
+\input{training}
+\ifpubliccv\else
+  \newpage
+  \input{manuscripts}
+  \input{referee-full}
+\fi
+\end{document}

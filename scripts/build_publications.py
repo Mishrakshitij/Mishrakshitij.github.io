@@ -72,29 +72,15 @@ def venue_family(pub):
 def plural(count, noun):
     return f'{count} {noun}{"" if count == 1 else "s"}'
 
-try:
-    records = json.loads((ROOT / 'data/publications.json').read_text(encoding='utf-8'))
-except json.JSONDecodeError as error:
-    raise SystemExit(f'data/publications.json is not valid JSON: {error}')
-validate(records)
-counts = Counter(venue_family(p) for p in records)
-years = sorted({p['year'] for p in records}, reverse=True)
-kind_counts = Counter(p['kind'] for p in records)
-totals = [f'<strong>{plural(len(records), "publication")}</strong>']
-totals += [plural(kind_counts[kind], label) for kind, label in KINDS.items() if kind_counts[kind]]
-home = (ROOT / 'index.html').read_text(encoding='utf-8')
-header = home.split('  <main id="main">')[0]
-header = header.replace('<title>Kshitij Mishra · Adaptive &amp; Trustworthy AI Agents</title>', '<title>Publications · Kshitij Mishra</title>')
-header = re.sub(r'<title>.*?</title>', '<title>Publications · Kshitij Mishra</title>', header)
-header = re.sub(r'<meta name="description"[^>]+>', '<meta name="description" content="Published and accepted research by Kshitij Mishra, grouped by year, with venue counts and first-author contribution markers.">', header)
-header = header.replace('rel="canonical" href="https://mishrakshitij.github.io/"', 'rel="canonical" href="https://mishrakshitij.github.io/publications.html"')
-header = header.replace('property="og:url" content="https://mishrakshitij.github.io/"', 'property="og:url" content="https://mishrakshitij.github.io/publications.html"')
-header = re.sub(r'<meta property="og:title"[^>]+>', '<meta property="og:title" content="Publications · Kshitij Mishra">', header)
-for anchor in ('about', 'research', 'patents', 'experience', 'contact'):
-    header = header.replace(f'href="#{anchor}"', f'href="index.html#{anchor}"')
-header = re.sub(r'(href="publications\.html(?:\?[^" ]*)?")>Publications', r'\1 aria-current="page">Publications', header)
-header = header.replace('</head>', '  <script src="publications.js" defer></script>\n</head>')
-footer = home[home.index('  <footer '):].replace('href="#about"', 'href="#main"')
+def load_records():
+    """Read and validate data/publications.json; the CV builder shares this."""
+    try:
+        records = json.loads((ROOT / 'data/publications.json').read_text(encoding='utf-8'))
+    except json.JSONDecodeError as error:
+        raise SystemExit(f'data/publications.json is not valid JSON: {error}')
+    validate(records)
+    return records
+
 
 def author_html(author):
     name = escape(author['name'])
@@ -126,24 +112,45 @@ def publication_html(pub):
       <h3>{title}</h3><p class="archive-authors">{authors}</p><p class="archive-venue">{venue}</p>{resources}
     </article>'''
 
-family_kinds = {venue_family(p): p['kind'] for p in records}
-def tag_position(venue):
-    if venue in VENUE_ORDER:
-        return (0, VENUE_ORDER.index(venue), 0, '')
-    return (1, list(KINDS).index(family_kinds[venue]), -counts[venue], venue.casefold())
+def main():
+    records = load_records()
+    counts = Counter(venue_family(p) for p in records)
+    years = sorted({p['year'] for p in records}, reverse=True)
+    kind_counts = Counter(p['kind'] for p in records)
+    totals = [f'<strong>{plural(len(records), "publication")}</strong>']
+    totals += [plural(kind_counts[kind], label) for kind, label in KINDS.items() if kind_counts[kind]]
+    home = (ROOT / 'index.html').read_text(encoding='utf-8')
+    header = home.split('  <main id="main">')[0]
+    header = header.replace('<title>Kshitij Mishra · Adaptive &amp; Trustworthy AI Agents</title>', '<title>Publications · Kshitij Mishra</title>')
+    header = re.sub(r'<title>.*?</title>', '<title>Publications · Kshitij Mishra</title>', header)
+    header = re.sub(r'<meta name="description"[^>]+>', '<meta name="description" content="Published and accepted research by Kshitij Mishra, grouped by year, with venue counts and first-author contribution markers.">', header)
+    header = header.replace('rel="canonical" href="https://mishrakshitij.github.io/"', 'rel="canonical" href="https://mishrakshitij.github.io/publications.html"')
+    header = header.replace('property="og:url" content="https://mishrakshitij.github.io/"', 'property="og:url" content="https://mishrakshitij.github.io/publications.html"')
+    header = re.sub(r'<meta property="og:title"[^>]+>', '<meta property="og:title" content="Publications · Kshitij Mishra">', header)
+    for anchor in ('about', 'research', 'patents', 'experience', 'contact'):
+        header = header.replace(f'href="#{anchor}"', f'href="index.html#{anchor}"')
+    header = re.sub(r'(href="publications\.html(?:\?[^" ]*)?")>Publications', r'\1 aria-current="page">Publications', header)
+    header = header.replace('</head>', '  <script src="publications.js" defer></script>\n</head>')
+    footer = home[home.index('  <footer '):].replace('href="#about"', 'href="#main"')
 
-venue_order = sorted(counts, key=tag_position)
-chips = [f'<button class="venue-count" type="button" data-venue-filter="all" aria-pressed="true">All <strong>×{len(records)}</strong></button>']
-for venue in venue_order:
-    chips.append(f'<button class="venue-count" type="button" data-venue-filter="{escape(venue, quote=True)}" aria-pressed="false">{escape(venue)} <strong>×{counts[venue]}</strong></button>')
-year_links = ''.join(f'<a href="#year-{y}">{y}</a>' for y in years)
-groups = []
-for year in years:
-    papers = [p for p in records if p['year'] == year]
-    items = '\n'.join(publication_html(p) for p in papers)
-    groups.append(f'<section class="year-group" id="year-{year}" data-year="{year}" aria-labelledby="heading-{year}"><h2 id="heading-{year}">{year}<span>{plural(len(papers), "publication")}</span></h2>{items}</section>')
+    family_kinds = {venue_family(p): p['kind'] for p in records}
+    def tag_position(venue):
+        if venue in VENUE_ORDER:
+            return (0, VENUE_ORDER.index(venue), 0, '')
+        return (1, list(KINDS).index(family_kinds[venue]), -counts[venue], venue.casefold())
 
-page = header + f'''  <main id="main" class="publications-page container">
+    venue_order = sorted(counts, key=tag_position)
+    chips = [f'<button class="venue-count" type="button" data-venue-filter="all" aria-pressed="true">All <strong>×{len(records)}</strong></button>']
+    for venue in venue_order:
+        chips.append(f'<button class="venue-count" type="button" data-venue-filter="{escape(venue, quote=True)}" aria-pressed="false">{escape(venue)} <strong>×{counts[venue]}</strong></button>')
+    year_links = ''.join(f'<a href="#year-{y}">{y}</a>' for y in years)
+    groups = []
+    for year in years:
+        papers = [p for p in records if p['year'] == year]
+        items = '\n'.join(publication_html(p) for p in papers)
+        groups.append(f'<section class="year-group" id="year-{year}" data-year="{year}" aria-labelledby="heading-{year}"><h2 id="heading-{year}">{year}<span>{plural(len(papers), "publication")}</span></h2>{items}</section>')
+
+    page = header + f'''  <main id="main" class="publications-page container">
     <h1>Publications</h1>
     <p class="archive-intro">Published and accepted work, organized by year. <a class="text-link" href="https://scholar.google.com/citations?user=jfTVBUQAAAAJ">Google Scholar ↗</a></p>
     <p class="archive-totals">{' · '.join(totals)}</p>
@@ -155,6 +162,9 @@ page = header + f'''  <main id="main" class="publications-page container">
     <div class="archive-layout"><nav class="year-nav" aria-label="Publication years"><span class="eyebrow">By year</span>{year_links}</nav><div id="publication-years">{''.join(groups)}<p class="archive-empty" id="publication-empty" hidden>No publications match this search. Try another term or select All.</p></div></div>
   </main>
 ''' + footer
-(ROOT / 'publications.html').write_text(page, encoding='utf-8')
-print(f'Built publications.html: {plural(len(records), "publication")} across {plural(len(years), "year")}.')
-print('Venue tags: ' + ', '.join(f'{venue} ×{counts[venue]}' for venue in venue_order))
+    (ROOT / 'publications.html').write_text(page, encoding='utf-8')
+    print(f'Built publications.html: {plural(len(records), "publication")} across {plural(len(years), "year")}.')
+    print('Venue tags: ' + ', '.join(f'{venue} ×{counts[venue]}' for venue in venue_order))
+
+if __name__ == '__main__':
+    main()

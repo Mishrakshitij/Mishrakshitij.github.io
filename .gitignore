@@ -7,3 +7,12 @@ __pycache__/
 .env.*
 *.key
 *.pem
+# LaTeX files from compiling the CV by hand (scripts/build_cv.py uses a temporary folder)
+cv/*.aux
+cv/*.log
+cv/*.out
+cv/*.fls
+cv/*.fdb_latexmk
+cv/*.xdv
+cv/*.synctex.gz
+cv/*.pdf
