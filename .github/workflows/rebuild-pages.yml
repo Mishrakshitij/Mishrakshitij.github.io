@@ -1,0 +1,48 @@
+# Adding a record to data/publications.json is the only edit a new paper needs:
+# this workflow regenerates the static archive pages (list, totals, per-year
+# counts, and venue tags) and commits them, and GitHub Pages publishes the result.
+name: Rebuild publication pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - data/publications.json
+      - scripts/build_publications.py
+      - scripts/build_patents.py
+      - index.html
+      - .github/workflows/rebuild-pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: rebuild-pages
+  cancel-in-progress: false
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: main
+
+      - name: Regenerate publications and patents pages
+        run: |
+          python3 scripts/build_publications.py
+          python3 scripts/build_patents.py
+
+      - name: Commit regenerated pages
+        run: |
+          if git diff --quiet -- publications.html patents.html; then
+            echo "Pages already match their sources; nothing to commit."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add publications.html patents.html
+          git commit -m "Rebuild publication pages from data/publications.json"
+          git pull --rebase origin main
+          git push origin HEAD:main

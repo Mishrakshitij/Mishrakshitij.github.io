@@ -10,7 +10,8 @@
 - Preserve the script order: `research-themes.js` before `script.js`.
 - After changing the shared menu or stylesheet/script versions, run
   `python3 scripts/build_publications.py` and `python3 scripts/build_patents.py`
-  to update both archive pages.
+  to update both archive pages. The Rebuild publication pages GitHub Action
+  also runs both after every push that touches `index.html`.
 - Edit the patent citation in `scripts/build_patents.py` and regenerate its page.
 
 The full career history remains in the CV; the homepage shows a compact

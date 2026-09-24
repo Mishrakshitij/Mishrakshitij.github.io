@@ -1,5 +1,38 @@
 [
   {
+    "id": "probe",
+    "title": "PROBE: Learning to Audit Policy Compliance in Tool-Using LLM Agents",
+    "year": 2026,
+    "venue": "NeurIPS 2026",
+    "venueGroup": "NeurIPS",
+    "kind": "conference",
+    "status": "accepted",
+    "authors": [
+      {
+        "name": "Kshitij Mishra",
+        "coFirst": false,
+        "first": true
+      },
+      {
+        "name": "Abhijith Sharma",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Nils Lukas",
+        "coFirst": false,
+        "first": false
+      },
+      {
+        "name": "Salem Lahlou",
+        "coFirst": false,
+        "first": false
+      }
+    ],
+    "url": null,
+    "code": null
+  },
+  {
     "id": "tracer",
     "title": "TRACER: Trace-Regularized Training Against Indirect Prompt Injection",
     "year": 2026,

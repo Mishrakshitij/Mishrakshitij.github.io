@@ -15,9 +15,10 @@ The repository is named `Mishrakshitij.github.io` to serve the account root. Git
 | File | Purpose |
 | --- | --- |
 | `index.html` | Compact biography, Latest, research interests, CAST, patents, experience, and contact |
-| `publications.html` | Complete static publication archive, grouped by year |
+| `publications.html` | Complete static publication archive, grouped by year (generated; do not edit by hand) |
 | `data/publications.json` | Public bibliography and author contribution metadata |
-| `scripts/build_publications.py` | Regenerates the publication archive |
+| `scripts/build_publications.py` | Regenerates the publication archive, totals, and venue tags |
+| `.github/workflows/rebuild-pages.yml` | Reruns both page generators on GitHub after the data or shared header changes |
 | `publications.js` | Year ordering, venue filters, and publication search |
 | `styles.css` | Layout, colors, typography, responsive behavior, and motion preferences |
 | `script.js` | CAST research map, curiosity cycle, and mobile navigation |
@@ -28,15 +29,39 @@ The repository is named `Mishrakshitij.github.io` to serve the account root. Git
 
 All essential information is available in HTML. JavaScript enhances the research map and navigation. The page respects reduced-motion preferences and includes keyboard-accessible controls.
 
-To add or correct a publication, edit `data/publications.json`, then run:
+## Add a publication
 
-```sh
-python3 scripts/build_publications.py
+Add one record at the top of `data/publications.json` (newest first) and push to `main`:
+
+```json
+{
+  "id": "short-name",
+  "title": "SHORT-NAME: Full Paper Title",
+  "year": 2027,
+  "venue": "ICLR 2027",
+  "kind": "conference",
+  "status": "accepted",
+  "authors": [{"name": "Kshitij Mishra", "first": true}, {"name": "Co-author Name"}],
+  "url": null,
+  "code": null
+}
 ```
 
-The generator includes only published or accepted work and computes venue/year counts from the same records it renders. Keep each paper’s exact venue in its metadata. Summary counts and filters combine main-conference and Findings papers under the conference name, and group IEEE Transactions journals under IEEE Txns.; IEEE SMC remains a separate conference. The `first` flag marks the first listed author; `coFirst` marks explicitly documented equal contributions. The website bolds Kshitij Mishra and adds dotted blue underlining to first and joint-first authors. Update the public CV separately when the record changes.
+The **Rebuild publication pages** GitHub Action then runs the generator and commits the new `publications.html`; GitHub Pages publishes it about a minute later. Pull before your next local edit, since the Action adds that commit. To preview first, run `python3 scripts/build_publications.py` locally; the Action then finds nothing to change.
 
-Edit the bullet updates under **Latest**, the **Patents** entry, and **Open research** links directly in `index.html`. Patent metadata links to its public record; publication code links are maintained in `data/publications.json`. The CAST introduction states the focus on building trustworthy AI systems, with further safety and security details in the interactive T node. The **CV** navigation link opens `assets/Kshitij_Mishra_CV.pdf` in a new tab. The Sanskrit quote and its translation sit directly below Research interests. The portrait sidebar contains affiliation, both email addresses, LinkedIn, and the interactive curiosity cycle. After changing the shared header in `index.html`, rerun the publication generator to keep both pages consistent. Both animations have pause controls and respect reduced-motion preferences.
+Everything on the publications page is computed from the records: the total, the conference/journal/workshop split, per-year counts, and one venue tag per venue with its paper count. A venue that appears for the first time gets its own tag automatically. The Action log and the local run print the resulting tags. A malformed record stops the build with a list of problems instead of publishing a broken page.
+
+- `id`: lowercase letters, digits, and hyphens; it becomes the paper's anchor, e.g. `publications.html#probe`.
+- `venue`: the exact venue as cited, e.g. `NeurIPS 2026`, `Findings of EMNLP 2026`, or a journal name. The tag is the venue without its year (`NeurIPS`); set `venueGroup` to choose a different tag, e.g. a journal abbreviation such as `IEEE TCSS`.
+- `kind`: `conference`, `journal`, or `workshop`. `status`: `published` or `accepted`; accepted papers carry an Accepted label, and work under review stays off the site.
+- `first` marks the first listed author; `coFirst` marks explicitly documented equal contributions. Both default to false.
+- Optional: `metadata` (journal volume and pages), `url` (paper link), `code` (repository link).
+
+Tags combine main-conference and Findings papers under the conference name and group IEEE Transactions journals under IEEE Txns.; IEEE SMC remains a separate conference. `VENUE_ORDER` at the top of `scripts/build_publications.py` sets the tag order; unlisted venues follow automatically. The website bolds Kshitij Mishra and adds dotted blue underlining to first and joint-first authors. The **Latest** bullets and the public CV are updated separately.
+
+## Other edits
+
+Edit the bullet updates under **Latest**, the **Patents** entry, and **Open research** links directly in `index.html`. Patent metadata links to its public record; publication code links are maintained in `data/publications.json`. The CAST introduction states the focus on building trustworthy AI systems, with further safety and security details in the interactive T node. The **CV** navigation link opens `assets/Kshitij_Mishra_CV.pdf` in a new tab. The Sanskrit quote and its translation sit directly below Research interests. The portrait sidebar contains affiliation, both email addresses, LinkedIn, and the interactive curiosity cycle. The publications and patents pages copy the shared header from `index.html`; the Action regenerates both whenever it changes. Both animations have pause controls and respect reduced-motion preferences.
 
 ## Preview locally
 
