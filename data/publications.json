@@ -10,12 +10,12 @@
     "authors": [
       {
         "name": "Kshitij Mishra",
-        "coFirst": false,
+        "coFirst": true,
         "first": true
       },
       {
         "name": "Abhijith Sharma",
-        "coFirst": false,
+        "coFirst": true,
         "first": false
       },
       {
